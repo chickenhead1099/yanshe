@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>社团主页</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
     <style>
         *{
             background-color: wheat;
@@ -35,20 +37,20 @@
 <body>
     <h1>严社主页</h1>
     <div>
-        <h2>文件分享区</h2><hr>
-            <textarea id="typing"  placeholder="在这里输入" minlength="10"></textarea>
-            <button id="btn">发送</button>
-            <div id="commend"></div>
+        <div id="gitalk-container"></div>
     </div>
     <script>
-        document.getElementById("btn").onclick=function(){send()};
-        function send(){
-            var g=new Date();
-            var value= document.getElementById("typing").value;
-            var p= document.createElement("p");
-            p.innerHTML="用户："+value+'<hr>'+g.toUTCString();
-            document.getElementById("commend").prepend(p);
-            
+        var gitalk = new Gitalk({
+		  clientID: '058b61436cde70e15d63',
+		  clientSecret: 'e439c0aa5936c33048780fd21c8a2057e6637c03',
+		  repo: 'comment',//仓库名
+		  owner: 'chickenhead1099',//字面意思
+		  admin: ['chickenhead1099'],//能改变仓库的管理者
+		  id: location.pathname,      // Ensure uniqueness and length less than 50
+		  distractionFreeMode: false  // 类似Facebook的无干扰模式
+		})
+
+		gitalk.render('gitalk-container')    
     </script>
 </body>
 </html>
