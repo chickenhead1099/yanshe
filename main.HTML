@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社团主页</title>
+    <style>
+        *{
+            background-color: wheat;
+            cursor: url(./res/normal.cur),pointer;
+        }
+        h1{
+        padding: 20px;
+        border: outset #B57170 10px;
+        color:white;
+        font-size: 60px;
+        background-color: darkred;
+        height: 55px;
+        line-height:60px;
+        text-shadow: 1px 1px 0px #ddd,
+        2px 2px 0px #bbb,
+        3px 3px 0px #999,
+        4px 4px 0px #777,
+        5px 5px 0px #555,
+        6px 6px 0px #333,
+        7px 7px 0px #111;
+        overflow: hidden;
+        }
+        div{
+            height: 500px;
+            /* background-color: skyblue; */
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>严社主页</h1>
+    <div>
+        <h2>文件分享区</h2><hr>
+            <textarea id="typing"  placeholder="在这里输入" minlength="10"></textarea>
+            <button id="btn">发送</button>
+            <div id="commend"></div>
+    </div>
+    <script>
+        document.getElementById("btn").onclick=function(){send()};
+        function send(){
+            var g=new Date();
+            var value= document.getElementById("typing").value;
+            var p= document.createElement("p");
+            p.innerHTML="用户："+value+'<hr>'+g.toUTCString();
+            document.getElementById("commend").prepend(p);
+    </script>
+</body>
+</html>
