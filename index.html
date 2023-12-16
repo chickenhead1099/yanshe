@@ -9,33 +9,65 @@
     <link rel="icon" href="./HEAD.ico" sizes="64x64">
     <style>
 	body{
-		background-color: wheat;
+		background-color: black;
 	}
-        h1{
-        padding: 20px;
-        border: outset #B57170 10px;
-        color:white;
-        font-size: 60px;
-        background-color: darkred;
-        height: 55px;
-        line-height:60px;
-        text-shadow: 1px 1px 0px #ddd,
-        2px 2px 0px #bbb,
-        3px 3px 0px #999,
-        4px 4px 0px #777,
-        5px 5px 0px #555,
-        6px 6px 0px #333,
-        7px 7px 0px #111;
-        overflow: hidden;
+        .gradient-border {
+        --border-width: 3px;
+              
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* width: 300px; */
+        height: 100px;
+        font-family: Lato, sans-serif;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        color: orange;
+        background: #222;
+        border-radius: var(--border-width);
+        text-shadow: 0 0 20px rgb(167, 128, 0),  0 0 10px rgba(10, 175, 230, 0);
+              
+        &::after {
+        position: absolute;
+        content: "";
+        top: calc(-1 * var(--border-width));
+        left: calc(-1 * var(--border-width));
+        z-index: -1;
+        width: calc(100% + var(--border-width) * 2);
+        height: calc(100% + var(--border-width) * 2);
+        background: linear-gradient(
+          60deg,
+          hsl(224, 85%, 66%),
+          hsl(269, 85%, 66%),
+          hsl(314, 85%, 66%),
+          hsl(359, 85%, 66%),
+          hsl(44, 85%, 66%),
+          hsl(89, 85%, 66%),
+          hsl(134, 85%, 66%),
+          hsl(179, 85%, 66%)
+        );
+        background-size: 300% 300%;
+        background-position: 0 50%;
+        border-radius: calc(2 * var(--border-width));
+        animation: moveGradient 4s alternate infinite;
         }
+    }
+
+        @keyframes moveGradient {
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+
     </style>
 </head>
 <body>
-    <h1>严社</h1>
+    <h1 class="gradient-border">严社主页</h1>
     <div>
 	<h2><marquee style="color: red;">关注徐汇严社喵，关注徐汇严社谢谢喵</marquee></h2>
         <div id="gitalk-container"></div>
-	<h1>文件资源</h1>
+	<h1 class="gradient-border" style="width: 300px;">文件资源</h1>
 	<a href="./以后出去别说兄弟亏待你(1) (1).xls" download title="好康的">游戏</a>
     </div>
     <script>
